@@ -7,6 +7,7 @@ Intent home for the todo ADLC pilot. It holds intent.md and spec.md for every ch
 - `templates/`: intent.md, spec.md, plan.md. Always start from these.
 - `adlc/`: workflow, gates, roles, decision log, canonical agent rules.
 - `lessons/`: post-incident write-ups that later investigations read.
+- `.agents/skills/`: write-intent, write-spec, security-baseline. The only copy; `.claude/skills` is a symlink to it.
 
 ## Commands
 None yet. This repo is markdown only. Phase 2 adds checks (template fields present, rules block in sync).
