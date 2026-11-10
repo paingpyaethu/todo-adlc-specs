@@ -1,0 +1,15 @@
+# OS and editor
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets: never commit. Keep a committed .env.example instead.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Personal agent settings (team settings stay committed)
+.claude/settings.local.json
