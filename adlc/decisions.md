@@ -41,7 +41,16 @@ Each decision records whether it comes from the playbook (PDF) or is a pilot cho
 - Subagents: repo agent roles in `.codex/agents/`.
 - Consequence for Phase 1: keep skills once in `.agents/skills/` and expose them to Claude Code through `.claude/skills` (symlink or copy, to be tested on both tools before relying on it).
 
+## D-007 Single-owner exception to separation of duties
+- Date: 2026-11-10. Status: accepted. Expires: when a second reviewer joins, or at the end of the pilot, whichever comes first.
+- Type: pilot exception to PDF p.37-39 (code owner approval through branch protection).
+- Decision: paingpyaethu holds every role (`roles.md`). Branch protection on `main` requires a pull request but 0 approvals, because GitHub blocks self-approval. The owner's merge, after reading the AI review findings, is the G5 decision. Agents never merge (rule 7); a hook enforcing that arrives in Phase 2.
+- Risk: no independent human review, and a single approver is a single point of failure. Mitigation: AI review passes plus the independent second-tool review from D-004.
+
+## D-008 Git host, identity and branch protection
+- Date: 2026-11-10. Status: accepted.
+- Type: pilot choice.
+- Decision: all three repos are private GitHub repos owned by `paingpyaethu`. Remotes use the SSH alias `github.com-personal`. Commits use the repo-local identity `paingpyaethu <paingpyaethu@gmail.com>`. `main` is protected: changes only through pull requests (administrators included), no force pushes, no deletion. Required status checks are added in Phase 3 when CI exists.
+
 ## Pending decisions
-- Git host, owning account or org, and remotes for all three repos.
-- Named people for each role in `roles.md`, and whether a second reviewer exists for G5.
 - Model access route for CI (direct API keys or Bedrock through OIDC) and the eval budget.
