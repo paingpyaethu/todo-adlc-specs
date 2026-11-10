@@ -50,9 +50,11 @@ Each decision records whether it comes from the playbook (PDF) or is a pilot cho
 ## D-008 Git host, identity and branch protection
 - Date: 2026-11-10. Status: accepted.
 - Type: pilot choice.
-- Decision: all three repos are private GitHub repos owned by `paingpyaethu`. Remotes use the SSH alias `github.com-personal`. Commits use the repo-local identity `paingpyaethu <paingpyaethu@gmail.com>`.
+- Decision: all three repos are public GitHub repos owned by `paingpyaethu` (made public on 2026-11-10 so branch protection is available without GitHub Pro; the owner accepted that code, specs, this log and the commit author email are publicly visible). Remotes use the SSH alias `github.com-personal`. Commits use the repo-local identity `paingpyaethu <paingpyaethu@gmail.com>`.
 - Intended protection for `main`: changes only through pull requests (administrators included), 0 required approvals (D-007), no force pushes, no deletion, conversations resolved before merge. Required status checks are added in Phase 3 when CI exists.
-- Status of protection: **blocked**. GitHub returned HTTP 403 on 2026-11-10: branch protection on private repos needs GitHub Pro (or public repos). Until resolved, `main` has no server-side gate and the pull-request rule is a convention only.
+- Status of protection: **active** on all three repos since 2026-11-10, verified by reading the settings back from the GitHub API. (The first attempt, while the repos were private, failed with HTTP 403 because private-repo protection needs GitHub Pro.)
+- Also enabled on all three repos: secret scanning, secret scanning push protection, and Dependabot alerts (part of G4).
+- Constraint: no data from Yoma Fleet systems, real users or credentials may enter these repos while they are public. Revisit visibility before any change touches real data.
 
 ## Pending decisions
 - Model access route for CI (direct API keys or Bedrock through OIDC) and the eval budget.
