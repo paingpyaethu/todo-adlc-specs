@@ -56,5 +56,11 @@ Each decision records whether it comes from the playbook (PDF) or is a pilot cho
 - Also enabled on all three repos: secret scanning, secret scanning push protection, and Dependabot alerts (part of G4).
 - Constraint: no data from Yoma Fleet systems, real users or credentials may enter these repos while they are public. Revisit visibility before any change touches real data.
 
+## D-009 Skills live once, in .agents/skills
+- Date: 2026-11-10. Status: proposed (accepted when its PR merges).
+- Type: pilot choice, implementing PDF p.25 (skills in the repo, version-controlled) for two tools, based on F-001.
+- Decision: each skill is a folder with SKILL.md under `.agents/skills/`, which Codex discovers. `.claude/skills` is a symlink to `../.agents/skills` so Claude Code reads the same files. First skills: write-intent, write-spec (Plan and Design), security-baseline (policy, owner paingpyaethu).
+- Not yet covered by a written policy: brand, UX, accessibility, API design conventions. The write-spec skill flags these as areas of concern until skills exist.
+
 ## Pending decisions
 - Model access route for CI (direct API keys or Bedrock through OIDC) and the eval budget.
