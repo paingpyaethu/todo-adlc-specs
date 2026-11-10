@@ -50,7 +50,9 @@ Each decision records whether it comes from the playbook (PDF) or is a pilot cho
 ## D-008 Git host, identity and branch protection
 - Date: 2026-11-10. Status: accepted.
 - Type: pilot choice.
-- Decision: all three repos are private GitHub repos owned by `paingpyaethu`. Remotes use the SSH alias `github.com-personal`. Commits use the repo-local identity `paingpyaethu <paingpyaethu@gmail.com>`. `main` is protected: changes only through pull requests (administrators included), no force pushes, no deletion. Required status checks are added in Phase 3 when CI exists.
+- Decision: all three repos are private GitHub repos owned by `paingpyaethu`. Remotes use the SSH alias `github.com-personal`. Commits use the repo-local identity `paingpyaethu <paingpyaethu@gmail.com>`.
+- Intended protection for `main`: changes only through pull requests (administrators included), 0 required approvals (D-007), no force pushes, no deletion, conversations resolved before merge. Required status checks are added in Phase 3 when CI exists.
+- Status of protection: **blocked**. GitHub returned HTTP 403 on 2026-11-10: branch protection on private repos needs GitHub Pro (or public repos). Until resolved, `main` has no server-side gate and the pull-request rule is a convention only.
 
 ## Pending decisions
 - Model access route for CI (direct API keys or Bedrock through OIDC) and the eval budget.
