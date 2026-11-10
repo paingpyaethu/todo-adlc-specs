@@ -13,4 +13,4 @@ Related repos: `todo-adlc-api`, `todo-adlc-mobile` (siblings in the same local w
 
 ## Pilot status
 
-Phase 0 (foundations) complete once `main` is protected on GitHub. Next: Phase 1, the first intent.md and spec.md (CHG-001). Open items are listed under "Pending decisions" in `adlc/decisions.md`.
+Phase 0 (foundations) complete: repos public on GitHub, `main` protected (pull requests only), secret scanning on. Next: Phase 1, the first intent.md and spec.md (CHG-001). Open items are listed under "Pending decisions" in `adlc/decisions.md`.
